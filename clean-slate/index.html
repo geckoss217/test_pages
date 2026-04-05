@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Clean Slate Plan | Emergency Cleanings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{--blue:#2f64e7;--dark-blue:#234372;--red:#e22658;--yellow:#fef22e;--white:#fff;--light-gray:#f7f7f7;--mid-gray:#dbdbdb;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Poppins',sans-serif;color:#1a1a2e;background:#fff;}
+    nav{background:#fff;border-bottom:2px solid var(--mid-gray);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:72px;position:sticky;top:0;z-index:100;}
+    .logo img{height:60px;width:auto;}
+    .nav-right{display:flex;align-items:center;gap:1rem;}
+    .nav-phone{font-size:15px;font-weight:700;color:var(--dark-blue);text-decoration:none;border:2px solid var(--dark-blue);padding:.45rem 1.1rem;border-radius:6px;transition:background .2s,color .2s;}
+    .nav-phone:hover{background:var(--dark-blue);color:#fff;}
+    .btn-primary{background:var(--blue);color:#fff;font-weight:700;font-size:15px;padding:.55rem 1.4rem;border-radius:6px;text-decoration:none;display:inline-block;transition:background .2s,transform .1s;}
+    .btn-primary:hover{background:var(--dark-blue);transform:translateY(-2px);}
+
+    /* HERO - Clean Slate gets a fresh white + blue split feel */
+    .hero{background:var(--dark-blue);padding:5rem 2rem;text-align:center;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(226,38,88,.15) 0%,transparent 60%),radial-gradient(ellipse at 20% 80%,rgba(47,100,231,.25) 0%,transparent 50%);pointer-events:none;}
+    .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(254,242,46,.15);border:1px solid rgba(254,242,46,.4);color:var(--yellow);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.35rem 1rem;border-radius:50px;margin-bottom:1.5rem;}
+    .badge-dot{width:7px;height:7px;border-radius:50%;background:var(--yellow);animation:pulse 2s infinite;}
+    h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;color:#fff;line-height:1.1;margin-bottom:1rem;}
+    h1 span{color:var(--yellow);}
+    .hero-tag{font-size:1.15rem;color:rgba(255,255,255,.82);max-width:580px;margin:0 auto 2rem;line-height:1.6;}
+    .hero-ctas{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+    .btn-yellow{background:var(--yellow);color:var(--dark-blue);font-weight:700;font-size:16px;padding:.85rem 2rem;border-radius:6px;text-decoration:none;display:inline-block;transition:transform .15s,box-shadow .15s;}
+    .btn-yellow:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(254,242,46,.35);}
+    .btn-outline{border:2px solid rgba(255,255,255,.4);color:#fff;font-size:15px;font-weight:600;padding:.8rem 1.6rem;border-radius:6px;text-decoration:none;display:inline-block;transition:border-color .2s;}
+    .btn-outline:hover{border-color:#fff;}
+    .hero-promise{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.1);border-radius:12px;margin-top:3rem;overflow:hidden;max-width:640px;margin-left:auto;margin-right:auto;}
+    .hp-item{background:rgba(255,255,255,.07);padding:1.4rem;text-align:center;}
+    .hp-val{font-size:22px;font-weight:800;color:var(--yellow);}
+    .hp-label{font-size:11px;color:rgba(255,255,255,.65);margin-top:.25rem;}
+
+    .sec{padding:4rem 2rem;}
+    .sec-tag{font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.6rem;}
+    h2{font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800;color:var(--dark-blue);margin-bottom:.7rem;}
+    .sec-sub{font-size:15px;color:#555;max-width:520px;line-height:1.65;margin-bottom:2.5rem;}
+    .center{text-align:center;}.center .sec-sub{margin-left:auto;margin-right:auto;}
+    .bg-gray{background:var(--light-gray);}
+
+    /* DUAL PANEL — the "wipe" visual */
+    .dual-panel{display:grid;grid-template-columns:1fr 1fr;max-width:900px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 16px 48px rgba(35,67,114,.15);}
+    .panel-before{background:#f5e6e8;padding:2.5rem;position:relative;}
+    .panel-before::after{content:'BEFORE';position:absolute;top:1rem;right:1rem;font-size:10px;font-weight:700;color:var(--red);letter-spacing:.12em;background:rgba(226,38,88,.12);padding:.2rem .6rem;border-radius:4px;}
+    .panel-before h3{font-size:1.1rem;font-weight:700;color:#7a1a2e;margin-bottom:1rem;}
+    .pain-list{list-style:none;}
+    .pain-list li{display:flex;align-items:center;gap:.7rem;padding:.55rem 0;border-bottom:1px solid rgba(226,38,88,.15);font-size:.875rem;color:#7a1a2e;}
+    .pain-list li:last-child{border-bottom:none;}
+    .pain-list .x{width:20px;height:20px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.75rem;font-weight:700;flex-shrink:0;}
+    .panel-after{background:var(--dark-blue);padding:2.5rem;position:relative;}
+    .panel-after::after{content:'AFTER';position:absolute;top:1rem;right:1rem;font-size:10px;font-weight:700;color:var(--yellow);letter-spacing:.12em;background:rgba(254,242,46,.15);padding:.2rem .6rem;border-radius:4px;}
+    .panel-after h3{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:1rem;}
+    .win-list{list-style:none;}
+    .win-list li{display:flex;align-items:center;gap:.7rem;padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.875rem;color:rgba(255,255,255,.85);}
+    .win-list li:last-child{border-bottom:none;}
+    .win-list .ck{width:20px;height:20px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.75rem;flex-shrink:0;}
+
+    /* HOW */
+    .how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;max-width:900px;margin:0 auto;}
+    .how-card{padding:1.8rem;border-radius:12px;background:#fff;border:1px solid var(--mid-gray);border-top:4px solid var(--blue);transition:transform .2s;}
+    .how-card:hover{transform:translateY(-3px);}
+    .how-num{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8rem;}
+    .how-card h3{font-size:1rem;font-weight:700;color:var(--dark-blue);margin-bottom:.5rem;}
+    .how-card p{font-size:.875rem;color:#555;line-height:1.6;}
+
+    /* PATHS */
+    .paths-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:860px;margin:0 auto;}
+    .path-card{border-radius:12px;padding:1.6rem;border:2px solid var(--mid-gray);transition:border-color .2s,transform .2s;}
+    .path-card:hover{border-color:var(--blue);transform:translateY(-2px);}
+    .path-tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);background:rgba(47,100,231,.1);padding:.2rem .6rem;border-radius:4px;display:inline-block;margin-bottom:.8rem;}
+    .path-eq{font-size:1.2rem;font-weight:800;color:var(--dark-blue);margin-bottom:.5rem;}
+    .path-card p{font-size:.83rem;color:#555;line-height:1.55;}
+
+    /* RATES */
+    .rates-table{max-width:700px;margin:0 auto;border-radius:10px;overflow:hidden;border:1px solid var(--mid-gray);}
+    .rr{display:grid;grid-template-columns:1.5fr 1fr 1fr;padding:1rem 1.2rem;border-bottom:1px solid var(--mid-gray);font-size:.9rem;align-items:center;background:#fff;}
+    .rr:last-child{border-bottom:none;}
+    .rr.hd{background:var(--dark-blue);color:#fff;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;}
+    .rr .bl{color:var(--blue);font-weight:700;}
+
+    /* FAQ */
+    .faq-list{max-width:680px;margin:0 auto;}
+    .faq-item{border-bottom:1px solid var(--mid-gray);}
+    .faq-q{padding:1.1rem 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.95rem;font-weight:600;color:var(--dark-blue);}
+    .fq-icon{width:28px;height:28px;border-radius:50%;background:rgba(47,100,231,.1);display:flex;align-items:center;justify-content:center;color:var(--blue);font-size:1.2rem;flex-shrink:0;transition:transform .3s,background .2s;}
+    .faq-item.open .fq-icon{transform:rotate(45deg);background:var(--blue);color:#fff;}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;font-size:.875rem;color:#555;line-height:1.7;}
+    .faq-item.open .faq-a{max-height:200px;padding-bottom:1rem;}
+
+    .cta-sec{background:var(--blue);text-align:center;padding:4rem 2rem;}
+    .cta-sec h2{color:#fff;margin-bottom:.8rem;}
+    .cta-sec p{color:rgba(255,255,255,.8);max-width:460px;margin:0 auto 2rem;}
+    .cta-note{font-size:.9rem;color:rgba(255,255,255,.65);margin-top:1rem;}
+    .cta-note a{color:var(--yellow);}
+    footer{background:var(--dark-blue);color:rgba(255,255,255,.6);text-align:center;padding:2rem 1.5rem;font-size:13px;}
+    footer a{color:rgba(255,255,255,.5);}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+    @media(max-width:768px){.dual-panel{grid-template-columns:1fr;}.paths-cols{grid-template-columns:1fr;}.nav-phone{display:none;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="https://emergencycleanings.com" class="logo"><img src="https://emergencycleanings.com/wp-content/uploads/2022/07/Final-logo-for-buyer-png.png" alt="Emergency Cleanings" /></a>
+  <div class="nav-right"><a href="tel:8333464652" class="nav-phone">833-346-4652</a><a href="tel:8333464652" class="btn-primary">Start Your Plan</a></div>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge"><span class="badge-dot"></span> New Program — Now Available</div>
+  <h1>The <span>Clean Slate</span> Plan</h1>
+  <p class="hero-tag">Wipe the stress away before the work even begins.<br/>The zero-interest path to a clutter-free life.</p>
+  <div class="hero-ctas">
+    <a href="tel:8333464652" class="btn-yellow">📞 Call 833-346-4652 to Enroll</a>
+    <a href="#how-it-works" class="btn-outline">See How It Works ↓</a>
+  </div>
+  <div class="hero-promise">
+    <div class="hp-item"><div class="hp-val">$0</div><div class="hp-label">Interest charged</div></div>
+    <div class="hp-item"><div class="hp-val">No</div><div class="hp-label">Credit check</div></div>
+    <div class="hp-item"><div class="hp-val">Cancel</div><div class="hp-label">Anytime, no penalty</div></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="center"><div class="sec-tag">Before &amp; After</div><h2>Your project is waiting. Start your clean slate today.</h2><p class="sec-sub">Here's the difference between putting it off vs. having a plan.</p></div>
+  <div class="dual-panel">
+    <div class="panel-before">
+      <h3>Without a plan</h3>
+      <ul class="pain-list">
+        <li><span class="x">✕</span>Staring at the problem every day</li>
+        <li><span class="x">✕</span>No clear path to "done"</li>
+        <li><span class="x">✕</span>Waiting for a windfall that never comes</li>
+        <li><span class="x">✕</span>The stress just keeps building</li>
+        <li><span class="x">✕</span>Big upfront cost feels impossible</li>
+      </ul>
+    </div>
+    <div class="panel-after">
+      <h3>With the Clean Slate Plan</h3>
+      <ul class="win-list">
+        <li><span class="ck">✓</span>A scheduled date on the calendar</li>
+        <li><span class="ck">✓</span>Monthly progress you can see</li>
+        <li><span class="ck">✓</span>Budget you control — change anytime</li>
+        <li><span class="ck">✓</span>Zero interest, zero credit check</li>
+        <li><span class="ck">✓</span>Peace of mind from day one</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="sec bg-gray" id="how-it-works">
+  <div class="center"><div class="sec-tag">How It Works</div><h2>Four simple steps to a clean slate.</h2><p class="sec-sub">No complicated process. Just a plan that builds toward results.</p></div>
+  <div class="how-grid">
+    <div class="how-card"><div class="how-num">Step 01</div><h3>One call to get started</h3><p>Tell us your budget or your timeline. We'll do the math and build your plan on the spot.</p></div>
+    <div class="how-card"><div class="how-num">Step 02</div><h3>Automatic monthly savings</h3><p>Set it and forget it. Monthly charges, monthly progress emails. No tracking required on your end.</p></div>
+    <div class="how-card"><div class="how-num">Step 03</div><h3>Milestone check-ins</h3><p>At 25%, 50%, and 90% funded we touch base, confirm the estimate, and keep everything accurate.</p></div>
+    <div class="how-card"><div class="how-num">Step 04</div><h3>Your slate gets clean</h3><p>Credits apply directly to the work. The project you've been putting off is finally, completely done.</p></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="center"><div class="sec-tag">Three Paths</div><h2>Tell us what you know. We'll solve the rest.</h2><p class="sec-sub">Every plan is one simple equation with three variables.</p></div>
+  <div class="paths-cols">
+    <div class="path-card"><span class="path-tag">Path A · Most Common</span><div class="path-eq">$200/mo → 23 months</div><p>Tell us your monthly budget. We show you exactly when your project gets fully funded.</p></div>
+    <div class="path-card"><span class="path-tag">Path B · Deadline First</span><div class="path-eq">8 months → $565/mo</div><p>Tell us your deadline. We calculate the monthly amount to hit it on time.</p></div>
+    <div class="path-card"><span class="path-tag">Path C · Full Picture</span><div class="path-eq">$300 × 12 = $3,600</div><p>Tell us both. We scope the project to perfectly match what you'll save.</p></div>
+  </div>
+</div>
+
+<div class="sec bg-gray">
+  <div class="center"><div class="sec-tag">Typical Plans</div><h2>Find your range.</h2><p class="sec-sub">What does a Clean Slate Plan look like for your project?</p></div>
+  <div class="rates-table">
+    <div class="rr hd"><span>Project Size</span><span>Monthly Range</span><span>Timeline</span></div>
+    <div class="rr"><span>$1,500 – $2,500</span><span class="bl">$150 – $200</span><span>8–17 months</span></div>
+    <div class="rr"><span>$2,500 – $5,000</span><span class="bl">$200 – $450</span><span>10–23 months</span></div>
+    <div class="rr"><span>$5,000 – $10,000</span><span class="bl">$400 – $750</span><span>10–20 months</span></div>
+    <div class="rr"><span>$10,000+</span><span class="bl">$500 – $1,000+</span><span>10–20 months</span></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="center"><div class="sec-tag">FAQ</div><h2>Straight answers.</h2></div>
+  <div class="faq-list">
+    <div class="faq-item"><div class="faq-q" onclick="tf(this)">Is this a loan or financing?<span class="fq-icon">+</span></div><div class="faq-a">No. The Clean Slate Plan is a prepaid savings program — no interest, no credit check, no debt. You save monthly and credits pay for your project when funded.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="tf(this)">Can I cancel?<span class="fq-icon">+</span></div><div class="faq-a">Yes, anytime. If you want a refund, we return your balance minus a small program fee. Many clients prefer to apply credits to a smaller scope of work rather than cancel.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="tf(this)">What if prices change before my project?<span class="fq-icon">+</span></div><div class="faq-a">We check in at milestones to keep estimates current. Before any work starts, we do an onsite walk-through to finalize everything. No surprises.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="tf(this)">Can I pay more some months?<span class="fq-icon">+</span></div><div class="faq-a">Absolutely. Just let us know and we'll update your plan. You'll hit your clean slate sooner.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="tf(this)">Can family members contribute?<span class="fq-icon">+</span></div><div class="faq-a">Yes. Anyone can call us and we'll post a payment to your account manually. A shareable link is coming soon.</div></div>
+  </div>
+</div>
+
+<div class="cta-sec">
+  <h2>Your project is waiting.</h2>
+  <p>One call. One plan. The project you've been postponing, finally done.</p>
+  <a href="tel:8333464652" class="btn-yellow">📞 Call 833-346-4652 to Enroll</a>
+  <p class="cta-note">No pressure. No credit check. No commitment until you're ready. · <a href="https://emergencycleanings.com">emergencycleanings.com</a></p>
+</div>
+<footer><p>&copy; 2025 Emergency Cleanings &middot; <a href="https://emergencycleanings.com">emergencycleanings.com</a> &middot; Professional – Affordable – Reliable</p></footer>
+<script>function tf(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>
